@@ -1494,7 +1494,9 @@
         // Animated Counter Function
         function animateCounter(element) {
             const target = parseInt(element.getAttribute('data-target'));
-            const duration = 2000; // 2 seconds total animation
+            if (!target || isNaN(target)) return;
+            
+            const duration = 2000; // 2 seconds
             const start = 0;
             const increment = target / (duration / 16); // 60fps
             let current = start;
@@ -1502,10 +1504,15 @@
             const timer = setInterval(() => {
                 current += increment;
                 if (current >= target) {
-                    element.textContent = target.toLocaleString() + '+';
+                    // Final value with + sign
+                    if (target >= 1000) {
+                        element.textContent = target.toLocaleString() + '+';
+                    } else {
+                        element.textContent = target + '+';
+                    }
                     clearInterval(timer);
                 } else {
-                    // Format number with comma for thousands
+                    // Format number during animation
                     const displayValue = Math.floor(current);
                     if (displayValue >= 1000) {
                         element.textContent = displayValue.toLocaleString();
@@ -1516,43 +1523,47 @@
             }, 16); // ~60fps
         }
 
-        // Intersection Observer for counter animation
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumber = entry.target.querySelector('.stat-number');
-                    if (statNumber && statNumber.getAttribute('data-target')) {
-                        animateCounter(statNumber);
-                        counterObserver.unobserve(entry.target);
-                    }
-                }
+        // Start animations when page loads and elements are visible
+        function initCounters() {
+            // Animate hero stat cards
+            const statCards = document.querySelectorAll('.stat-card .stat-number[data-target]');
+            statCards.forEach((el, index) => {
+                // Slight delay for staggered effect
+                setTimeout(() => {
+                    animateCounter(el);
+                }, index * 100);
             });
-        }, { threshold: 0.5 });
 
-        // Observe all stat cards
-        document.querySelectorAll('.stat-card').forEach(card => {
-            counterObserver.observe(card);
-        });
-
-        // Also animate numbers in the GitHub contributions card when visible
-        const contributionsCard = document.querySelector('.card');
-        if (contributionsCard) {
-            const contributionsObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const statNumbers = entry.target.querySelectorAll('.stat-number[data-target]');
-                        statNumbers.forEach(el => {
-                            if (el.textContent === '0') {
-                                animateCounter(el);
-                            }
-                        });
-                        contributionsObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.3 });
-            
-            contributionsObserver.observe(contributionsCard);
+            // Animate GitHub contributions card when scrolled into view
+            const contributionsCard = document.querySelector('.card .stat-number[data-target]');
+            if (contributionsCard) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Find all stat numbers in this section
+                            const allStatNumbers = document.querySelectorAll('.card .stat-number[data-target]');
+                            allStatNumbers.forEach((el, index) => {
+                                setTimeout(() => {
+                                    animateCounter(el);
+                                }, index * 100);
+                            });
+                            observer.disconnect();
+                        }
+                    });
+                }, { threshold: 0.3 });
+                
+                // Observe the parent card
+                const cardParent = contributionsCard.closest('.card');
+                if (cardParent) {
+                    observer.observe(cardParent);
+                }
+            }
         }
+
+        // Run counter animations after page loads
+        window.addEventListener('load', () => {
+            setTimeout(initCounters, 300);
+        });
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
