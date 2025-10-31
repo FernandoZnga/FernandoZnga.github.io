@@ -1,326 +1,1551 @@
 <!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<html lang="en">
 <head>
-    <title>Oscar Fernando Zuniga</title>
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fernando Zuniga cv">   
-    <link rel="shortcut icon" href="favicon.ico">  
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <!-- Global CSS -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
-    <!-- Plugins CSS -->
-    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.css">
+    <meta name="description" content="Oscar Fernando Zuniga - Senior QA Engineer, Cybersecurity Specialist & Backend Developer">
+    <title>Oscar Fernando Zuniga | Senior QA Engineer & Cybersecurity Specialist</title>
+    <link rel="shortcut icon" href="favicon.ico">
     
-    <!-- Theme CSS -->  
-    <link id="theme-style" rel="stylesheet" href="assets/css/styles-6.css">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head> 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Dark Theme (Default) */
+            --bg-primary: #0a0e27;
+            --bg-secondary: #151932;
+            --bg-card: #1a1f3a;
+            --accent-primary: #00d4ff;
+            --accent-secondary: #6c5ce7;
+            --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --text-muted: #718096;
+            --border-color: #2d3748;
+            --success: #48bb78;
+            --warning: #ed8936;
+        }
 
+        [data-theme="light"] {
+            /* Light Theme */
+            --bg-primary: #f8f9fa;
+            --bg-secondary: #e9ecef;
+            --bg-card: #ffffff;
+            --accent-primary: #667eea;
+            --accent-secondary: #764ba2;
+            --accent-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            --text-muted: #718096;
+            --border-color: #e2e8f0;
+            --success: #48bb78;
+            --warning: #ed8936;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.05;
+        }
+
+        .background-animation::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            filter: blur(100px);
+            animation: float 20s infinite;
+            top: -250px;
+            left: -250px;
+        }
+
+        .background-animation::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #00d4ff 100%);
+            border-radius: 50%;
+            filter: blur(100px);
+            animation: float 15s infinite reverse;
+            bottom: -200px;
+            right: -200px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(100px, -100px) scale(1.1); }
+            66% { transform: translate(-100px, 100px) scale(0.9); }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 50%;
+            right: 2rem;
+            transform: translateY(-50%);
+            z-index: 1000;
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            padding: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-50%) scale(1.1);
+            border-color: var(--accent-primary);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .theme-toggle-inner {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-icon {
+            font-size: 1.5rem;
+            color: white;
+            transition: all 0.3s ease;
+            position: absolute;
+        }
+
+        .theme-icon.sun {
+            opacity: 0;
+            transform: rotate(-90deg) scale(0);
+        }
+
+        .theme-icon.moon {
+            opacity: 1;
+            transform: rotate(0) scale(1);
+        }
+
+        [data-theme="light"] .theme-icon.sun {
+            opacity: 1;
+            transform: rotate(0) scale(1);
+        }
+
+        [data-theme="light"] .theme-icon.moon {
+            opacity: 0;
+            transform: rotate(90deg) scale(0);
+        }
+
+        /* Light theme specific adjustments */
+        [data-theme="light"] .background-animation {
+            opacity: 0.03;
+        }
+
+        [data-theme="light"] .profile-image {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 40px rgba(102, 126, 234, 0.3);
+        }
+
+        [data-theme="light"] .stat-card:hover {
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+        }
+
+        [data-theme="light"] .card {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        [data-theme="light"] .card:hover {
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+        }
+
+        [data-theme="light"] .social-link:hover {
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.25);
+        }
+
+        @media (max-width: 768px) {
+            .theme-toggle {
+                top: auto;
+                bottom: 2rem;
+                right: 1rem;
+                transform: none;
+            }
+
+            .theme-toggle:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-primary);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+            margin-bottom: 2rem;
+            object-fit: cover;
+            animation: pulse-border 3s infinite;
+        }
+
+        @keyframes pulse-border {
+            0%, 100% { box-shadow: 0 0 40px rgba(0, 212, 255, 0.3); }
+            50% { box-shadow: 0 0 60px rgba(0, 212, 255, 0.6); }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background: var(--accent-gradient);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Section */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title i {
+            color: var(--accent-primary);
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-primary);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .card-date {
+            color: var(--accent-primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .card-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            padding: 0.4rem 0.8rem;
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--accent-primary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-category-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .skill-category-title i {
+            color: var(--accent-primary);
+            font-size: 1.5rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .skill-level {
+            color: var(--accent-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--accent-gradient);
+            border-radius: 10px;
+            animation: fillBar 1.5s ease-out;
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+
+        /* Projects Section */
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            padding: 2rem;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+
+        .project-link {
+            padding: 0.6rem 1.2rem;
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid var(--accent-primary);
+            border-radius: 8px;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-link:hover {
+            background: var(--accent-gradient);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            border-color: var(--accent-primary);
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-gradient);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-details a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-details a:hover {
+            color: var(--accent-primary);
+        }
+
+        .contact-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .tagline { font-size: 1.2rem; }
+            .section-title { font-size: 2rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
 <body>
-    <div class="wrapper">
-        <div class="sidebar-wrapper">
-            <div class="profile-container">
-                <img class="profile profile-pic" src="assets/images/profile.jpg" alt="Oscar Zuniga profile picture" />
-                <h1 class="name">Oscar Fernando Zuniga</h1>
-                <h3 class="tagline">Computer Science Professional</h3>
-            </div><!--//profile-container-->
+    <div class="background-animation"></div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <div class="theme-toggle-inner">
+            <i class="fas fa-sun theme-icon sun"></i>
+            <i class="fas fa-moon theme-icon moon"></i>
+        </div>
+    </button>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">&lt;/OZ&gt;</div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <img src="assets/images/profile.jpg" alt="Oscar Fernando Zuniga" class="profile-image">
+                <h1>Oscar Fernando Zuniga</h1>
+                <p class="tagline">Senior QA Engineer • Cybersecurity Specialist • Backend Developer</p>
+                <p class="subtitle">Computer Science Professional | Master's in Cybersecurity | Python & Django Expert</p>
+                
+                <div class="social-links">
+                    <a href="https://github.com/FernandoZnga" target="_blank" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/fernandoznga/" target="_blank" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://twitter.com/FernandoZnga" target="_blank" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://oscarzuniga.live" target="_blank" class="social-link" aria-label="Website">
+                        <i class="fas fa-globe"></i>
+                    </a>
+                    <a href="mailto:fernando.zunigag@me.com" class="social-link" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="20">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="8">0</div>
+                        <div class="stat-label">Years in QA</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="repoCount" data-target="68">0</div>
+                        <div class="stat-label">
+                            <i class="fab fa-github" style="font-size: 0.85rem; margin-right: 0.3rem; opacity: 0.7;"></i>
+                            GitHub Repos
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="2500">0</div>
+                        <div class="stat-label">
+                            <i class="fab fa-github" style="font-size: 0.85rem; margin-right: 0.3rem; opacity: 0.7;"></i>
+                            Total Commits
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="300">0</div>
+                        <div class="stat-label">
+                            <i class="fab fa-github" style="font-size: 0.85rem; margin-right: 0.3rem; opacity: 0.7;"></i>
+                            Pull Requests
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="500">0</div>
+                        <div class="stat-label">
+                            <i class="fab fa-github" style="font-size: 0.85rem; margin-right: 0.3rem; opacity: 0.7;"></i>
+                            Code Reviews
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-user-circle"></i> About Me</h2>
+            <p class="section-subtitle">Backend developer with strong expertise in quality assurance, cybersecurity, and database management</p>
             
-            <div class="contact-container container-block">
-                <ul class="list-unstyled contact-list">
-                    <li class="email"><i class="fa fa-envelope"></i><a href="mailto:fernando.zunigag@me.com">fernando.zunigag@me.com</a></li>
-                    <li class="email"><i class="fa fa-envelope"></i><a href="mailto: fernando.zunigag@gmail.com">fernando.zunigag@gmail.com</a></li>
-                    <li class="phone"><i class="fa fa-phone"></i><a href="tel:+50499900007">+(504)9990-0007</a></li>
-                    <li class="linkedin"><i class="fa fa-linkedin"></i><a href="https://www.linkedin.com/in/fernandoznga/" target="_blank">fernando zuniga</a></li>
-                    <li class="github"><i class="fa fa-github"></i><a href="https://github.com/FernandoZnga" target="_blank">github.com/FernandoZnga</a></li>
-                    <li class="twitter"><i class="fa fa-twitter"></i><a href="https://twitter.com/FernandoZnga" target="_blank">@FernandoZnga</a></li>
-                </ul>
-            </div><!--//contact-container-->
-            <div class="education-container container-block">
-                <h2 class="container-block-title">Education</h2>
-                <div class="item">
-                    <h4 class="degree">Informatic engineering</h4>
-                    <h5 class="meta">Universidad Tecnológica Centroamericana (CEUTEC/UNITEC)</h5>
-                    <div class="time">2015-2019</div>
-                </div><!--//item-->
-                <div class="item">
-                    <h4 class="degree">Bachellor of science and letters</h4>
-                    <h5 class="meta">Instituto Salesiano San Miguel</h5>
-                    <div class="time">1997 - 2000</div>
-                </div><!--//item-->
-            </div><!--//education-container-->
+            <div class="card">
+                <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.9;">
+                    Senior QA Engineer and Backend Developer with <strong style="color: var(--accent-primary);">10+ years of experience</strong> specializing in 
+                    <strong style="color: var(--text-primary);">test automation, API development, and cybersecurity</strong>. Currently pursuing a Master's degree in Cybersecurity 
+                    with focus on applied cryptography, penetration testing, and security assessment. Proven expertise in Python/Django, 
+                    API testing frameworks, database optimization (Oracle), and DevOps practices. Self-taught professional with a passion 
+                    for building secure, scalable solutions and automating complex workflows.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            <p class="section-subtitle">Career journey across QA, development, and security</p>
             
-            <div class="languages-container container-block">
-                <h2 class="container-block-title">Languages</h2>
-                <ul class="list-unstyled interests-list">
-                    <li>Spanish <span class="lang-desc">(Native)</span></li>
-                    <li>English <span class="lang-desc">(Professional)</span></li>
-                </ul>
-            </div><!--//interests-->
-            
-            <div class="interests-container container-block">
-                <h2 class="container-block-title">Interests</h2>
-                <ul class="list-unstyled interests-list">
-                    <li>Processes Maping</li>
-                    <li>Programming</li>
-                    <li>Security/Audit</li>
-                </ul>
-            </div><!--//interests-->
-            
-        </div><!--//sidebar-wrapper-->
-        
-        <div class="main-wrapper">
-            
-            <section class="section summary-section">
-                <h2 class="section-title"><i class="fa fa-user"></i>Career Profile</h2>
-                <div class="summary">
-                    <p>
-                        I'm a backend developer with strong knowledge on databases having +10 years experience on Oracle focus on trend and behaviour anaysis, automation and coding solutions for management decision support. Self-taught what makes me join and adapted to new fields easily.
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Senior Quality Assurance Engineer</h3>
+                            <p class="card-meta">Fortress Technology Solutions</p>
+                        </div>
+                        <span class="card-date">Oct 2020 - Present</span>
+                    </div>
+                    <p class="card-description">
+                        Lead quality assurance initiatives for enterprise software solutions. Design and implement comprehensive test strategies, 
+                        automation frameworks using Python (Django, Flask), and API testing tools. Specialize in functional, smoke, and BDD/TDD testing. 
+                        Mentor team members and establish best practices for continuous testing in agile environments.
                     </p>
-                </div><!--//summary-->
-            </section><!--//section-->
-            
-            <section class="section experiences-section">
-                <h2 class="section-title"><i class="fa fa-briefcase"></i>Experiences</h2>
-                
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Quality Assurance Engineer</h3>
-                            <div class="time">Oct 2017 - Present</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Acklen Avenue</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <p>Design and implement test cases, debug and define corrective actions and track quality assurance metrics.</p>
-                        <p>Automation of test using Python/Selenium and Javascript/Mocka</p>
-                    </div><!--//details-->
-                </div><!--//item-->
-                
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Value Added Services HEAD</h3>
-                            <div class="time">March 2012 - January 2016</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Tigo</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <p>Launch and development of the digital tool for selling Paquetigos in POS overall sales distribution channels, nationwide (VASTRIX method)</p>
-                        <p>Sales increase strategy development for Value added services</p>
-                        <p>VAS trainers team development (+100 people) to increase the awareness of Digital Lifestyle and use of Smartphones, reaching all POS and TIGO agencies</p>
-                    </div><!--//details-->
-                </div><!--//item-->
-                
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Fraud & Revenue Assurance SR ANALYST</h3>
-                            <div class="time">January 2009 - Februart 2012</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Tigo</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <p>Lead the design, implementation and continuous improvement of Control programs for Revenue Assurance</p>
-                        <p>Automation of processes and related functions for an adequate register of revenues through technological conciliations</p>
-                        <p>Product trend analysis, follow-up of revenues and costs for value added services</p>
-                        <p>Map income processes at a technical and accounting level</p>
-                    </div><!--//details-->
-                </div><!--//item-->
-                
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Fraud & Revenue Assurance SUPERVISOR</h3>
-                            <div class="time">January 2008 - December 2008</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Tigo</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <p>Conduct audit reviews
-                        <p>Monitoring, analysis and trace telephony related frauds</p>
-                        <p>Provide experience to advise on Risk Management and Fraud Prevention program</p>
-                        <p>Ensure that internal policies and procedures are complied by staff</p>
-                    </div><!--//details-->
-                </div><!--//item-->
-                
-                
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Internal Control ANALYST</h3>
-                            <div class="time">May 2006 - December 2007</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Tigo</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <p>Conduct audit reviews, analyzing root cause and associated risks </p>
-                        <p>Billing and tariff assurance through system alarms program development</p>
-                        <p>Risk management, including Fraud prevention helped on an automatic event alarms</p>
-                    </div><!--//details-->
-                </div><!--//item-->
-                
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Customer Service OFFCIAL</h3>
-                            <div class="time">February 2004 - April 2006</div>
-                        </div><!--//upper-row-->
-                        <div class="company">Tigo</div>
-                    </div><!--//meta-->
-                    <div class="details">
-                        <p>Comply protocol of customer service </p>
-                        <p>Manage, process and solve customers’ requirements and requests</p>  
-                    </div><!--//details-->
-                </div><!--//item-->
-            </section><!--//section-->
-            
-            <section class="section projects-section">
-                <h2 class="section-title"><i class="fa fa-shield"></i>Aptitudes</h2>
-                <div class="item">
-                    <span class="aptitude-title">Proactive</span> - 
-                    <span class="project-tagline">Always looking for innovative solutions using technology as a helpping tool</span>
-                </div><!--//item-->
-                <div class="item">
-                    <span class="aptitude-title"> Self-taught person - </span>
-                        <span class="project-tagline">Love to search new tools and read about how can solve dayli or recurrent situations</span>
-                </div><!--//item-->
-                <div class="item">
-                    <span class="aptitude-title">Good speaker</span> 
-                    - <span class="project-tagline">Have no problems speaking and expressing myself in public</span>
-                </div><!--//item-->
-            </section><!--//section-->
-            
-            <section class="skills-section section">
-                <h2 class="section-title"><i class="fa fa-rocket"></i>Skills &amp; Proficiency</h2>
+                    <div class="card-tags">
+                        <span class="tag">Python/Selenium</span>
+                        <span class="tag">Django/Flask</span>
+                        <span class="tag">API Testing</span>
+                        <span class="tag">BDD/TDD</span>
+                        <span class="tag">Test Automation</span>
+                        <span class="tag">Smoke Testing</span>
+                    </div>
+                </div>
 
-                <div class="item">
-                        <div class="meta">
-                            <div class="upper-row">
-                                <div class="skillset">        
-                                        <div class="item">
-                                            <h3 class="level-title">PL/SQL</h3>
-                                            <div class="level-bar">
-                                                <div class="level-bar-inner" data-level="90%">
-                                                </div>                                      
-                                            </div><!--//level-bar-->                                 
-                                        </div><!--//item-->
-                                        
-                                        <div class="item">
-                                            <h3 class="level-title">HTML5 &amp CSS3</h3>
-                                            <div class="level-bar">
-                                                <div class="level-bar-inner" data-level="75%">
-                                                </div>                                      
-                                            </div><!--//level-bar-->                                 
-                                        </div><!--//item-->
-                                        
-                                        <div class="item">
-                                                <h3 class="level-title">Java</h3>
-                                                <div class="level-bar">
-                                                    <div class="level-bar-inner" data-level="70%">
-                                                    </div>                                      
-                                                </div><!--//level-bar-->                                 
-                                            </div><!--//item-->
-                    
-                                        <div class="item">
-                                            <h3 class="level-title">Python</h3>
-                                            <div class="level-bar">
-                                                <div class="level-bar-inner" data-level="66%">
-                                                </div>                                      
-                                            </div><!--//level-bar-->                                 
-                                        </div><!--//item-->
-                                        
-                                        <div class="item">
-                                            <h3 class="level-title">Javascript</h3>
-                                            <div class="level-bar">
-                                                <div class="level-bar-inner" data-level="50%">
-                                                </div>                                      
-                                            </div><!--//level-bar-->                                 
-                                        </div><!--//item-->
-                                </div>  
-                            </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Business Intelligence Specialist</h3>
+                            <p class="card-meta">Cable Color Honduras</p>
                         </div>
-                    </div><!--//item-->
-            </section><!--//skills-section-->
+                        <span class="card-date">Mar 2020 - Oct 2020</span>
+                    </div>
+                    <p class="card-description">
+                        Developed and maintained business intelligence solutions combining QA expertise with data analysis. 
+                        Designed quality assurance processes for BI reports and dashboards. Applied computer science principles 
+                        to ensure data accuracy and system reliability.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Quality Assurance</span>
+                        <span class="tag">Business Intelligence</span>
+                        <span class="tag">Computer Science</span>
+                        <span class="tag">Data Analysis</span>
+                    </div>
+                </div>
 
-            <section class="skills-section section">
-                <h2 class="section-title"><i class="fa fa-cog"></i>Other Skills</h2>
-                <div class="item">
-                        <div class="meta">
-                            <div class="upper-row">
-                                <div class="skillset">        
-                                        <div class="item">
-                                            <h3 class="level-title">Git/Github</h3>
-                                            <div class="level-bar">
-                                                <div class="level-bar-inner" data-level="80%">
-                                                </div>                                      
-                                            </div><!--//level-bar-->                                 
-                                        </div><!--//item-->
-                                        
-                                        <div class="item">
-                                            <h3 class="level-title">Postman</h3>
-                                            <div class="level-bar">
-                                                <div class="level-bar-inner" data-level="70%">
-                                                </div>                                      
-                                            </div><!--//level-bar-->                                 
-                                        </div><!--//item-->
-                                        
-                                        <div class="item">
-                                                <h3 class="level-title">Scrum/Kanban Project Management</h3>
-                                                <div class="level-bar">
-                                                    <div class="level-bar-inner" data-level="70%">
-                                                    </div>                                      
-                                                </div><!--//level-bar-->                                 
-                                        </div><!--//item-->                                        
-                                </div>  
-                            </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">QA Engineer</h3>
+                            <p class="card-meta">Acklen Avenue</p>
                         </div>
-                    <div class="meta">
-                            <div class="upper-row">
-                                <div class="skillset">        
-                                        <div class="item">
-                                            <h3 class="level-title">Microsoft Excel</h3>
-                                            <div class="level-bar">
-                                                <div class="level-bar-inner" data-level="100%">
-                                                </div>                                      
-                                            </div><!--//level-bar-->                                 
-                                        </div><!--//item-->    
-                                        <div class="item">
-                                            <h3 class="level-title">Microsoft Power BI</h3>
-                                            <div class="level-bar">
-                                                <div class="level-bar-inner" data-level="75%">
-                                                </div>                                      
-                                            </div><!--//level-bar-->                                 
-                                        </div><!--//item-->
-                                        <div class="item">
-                                                <h3 class="level-title">Agile Methodology</h3>
-                                                <div class="level-bar">
-                                                    <div class="level-bar-inner" data-level="75%">
-                                                    </div>                                      
-                                                </div><!--//level-bar-->                                 
-                                            </div><!--//item-->
-                                        
-                                </div>  
-                            </div>
-                    </div><!--//item-->
-            	</div><!--//item-->
-            </section><!--//skills-section-->
-        </div><!--//main-body-->
-    </div>
+                        <span class="card-date">Oct 2017 - Mar 2020</span>
+                    </div>
+                    <p class="card-description">
+                        Managed exploratory and automated testing to ensure product quality across multiple client projects. 
+                        Designed and implemented test cases, debugged issues, and defined corrective actions. 
+                        Developed automation frameworks using Python/Selenium and JavaScript/Mocha.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Python/Selenium</span>
+                        <span class="tag">JavaScript/Mocha</span>
+                        <span class="tag">Test Cases</span>
+                        <span class="tag">Debugging</span>
+                        <span class="tag">Agile/Scrum</span>
+                    </div>
+                </div>
 
-    <!-- Javascript -->          
-    <script type="text/javascript" src="assets/plugins/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>    
-    <!-- custom js -->
-    <script type="text/javascript" src="assets/js/main.js"></script>            
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Value Added Services HEAD</h3>
+                            <p class="card-meta">Tigo (Millicom)</p>
+                        </div>
+                        <span class="card-date">Mar 2012 - Jan 2016</span>
+                    </div>
+                    <p class="card-description">
+                        Led digital transformation initiatives and VAS strategy development. Developed VASTRIX digital tool for nationwide POS sales. 
+                        Built and managed team of 100+ VAS trainers, driving digital lifestyle adoption and smartphone usage across distribution channels.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Strategy</span>
+                        <span class="tag">Team Leadership</span>
+                        <span class="tag">Digital Tools</span>
+                        <span class="tag">Sales Analytics</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Fraud & Revenue Assurance SR Analyst</h3>
+                            <p class="card-meta">Tigo (Millicom)</p>
+                        </div>
+                        <span class="card-date">Jan 2009 - Feb 2012</span>
+                    </div>
+                    <p class="card-description">
+                        Designed and implemented automated control programs for revenue assurance. Performed trend analysis and behavioral pattern detection 
+                        for fraud prevention. Developed process automation solutions using Oracle PL/SQL for revenue reconciliation and audit trails.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Oracle PL/SQL</span>
+                        <span class="tag">Fraud Detection</span>
+                        <span class="tag">Process Automation</span>
+                        <span class="tag">Data Analysis</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Fraud & Revenue Assurance Supervisor</h3>
+                            <p class="card-meta">Tigo (Millicom)</p>
+                        </div>
+                        <span class="card-date">Jan 2008 - Dec 2008</span>
+                    </div>
+                    <p class="card-description">
+                        Conducted comprehensive audit reviews and fraud investigations. Implemented risk management frameworks and developed automated 
+                        alert systems for telephony fraud detection. Ensured compliance with internal policies and industry regulations.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Auditing</span>
+                        <span class="tag">Risk Management</span>
+                        <span class="tag">Compliance</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-code"></i> Featured Projects</h2>
+            <p class="section-subtitle">Open source contributions and personal projects</p>
+            
+            <div class="cards-grid">
+                <div class="project-card card">
+                    <div class="project-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="card-title">CryptoVault-AES</h3>
+                    <p class="card-description">
+                        Secure file encryption tool implementing AES-GCM encryption. Developed as part of Applied Cryptography Master's course, 
+                        demonstrating practical application of cryptographic principles and secure key management.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">AES-GCM</span>
+                        <span class="tag">Cryptography</span>
+                        <span class="tag">Security</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/FernandoZnga/CryptoVault-AES" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card card">
+                    <div class="project-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3 class="card-title">Burp Suite Race Lab</h3>
+                    <p class="card-description">
+                        Educational race condition attack scripts for Burp Suite laboratories. Master's Degree cybersecurity project demonstrating 
+                        vulnerability exploitation techniques and secure coding practices to prevent timing attacks.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Burp Suite</span>
+                        <span class="tag">Security Testing</span>
+                        <span class="tag">OWASP</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/FernandoZnga/burp-suite-race-lab" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card card">
+                    <div class="project-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="card-title">Django API Boilerplate</h3>
+                    <p class="card-description">
+                        Comprehensive Django REST API boilerplate with modular testing suite. Includes unit tests, API integration tests, 
+                        and UI tests using Selenium. Production-ready structure with authentication, permissions, and best practices.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Django</span>
+                        <span class="tag">REST API</span>
+                        <span class="tag">Pytest</span>
+                        <span class="tag">Selenium</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/FernandoZnga/django-api-boilerplate" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card card">
+                    <div class="project-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="card-title">Flask API Setup</h3>
+                    <p class="card-description">
+                        Lightweight Flask API starter template with best practices for building RESTful services. Includes authentication, 
+                        database migrations, environment configuration, and deployment guidelines.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Flask</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">REST API</span>
+                        <span class="tag">SQLAlchemy</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/FernandoZnga/flask-api-setup" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card card">
+                    <div class="project-icon">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <h3 class="card-title">API Testing Starter</h3>
+                    <p class="card-description">
+                        Simple API testing boilerplate with Express.js, Jest, and Supertest. Designed to help teams quickly set up 
+                        automated API testing workflows with comprehensive examples and best practices.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Jest</span>
+                        <span class="tag">Express.js</span>
+                        <span class="tag">Supertest</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/FernandoZnga/api-testing-starter" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-rocket"></i> Technical Skills</h2>
+            <p class="section-subtitle">Expertise across development, testing, and security</p>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <i class="fas fa-code"></i>
+                        Programming Languages
+                    </h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">SQL / PL/SQL</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Java</span>
+                            <span class="skill-level">Proficient</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <i class="fas fa-server"></i>
+                        Backend & Databases
+                    </h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Django / DRF</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Flask</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Oracle Database</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">PostgreSQL / MySQL</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <i class="fas fa-vial"></i>
+                        QA & Testing
+                    </h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Selenium / WebDriver</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Pytest / Jest / Mocha</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Postman / API Testing</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Test Automation</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 92%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <i class="fas fa-shield-alt"></i>
+                        Security & DevOps
+                    </h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Penetration Testing</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Burp Suite / OWASP</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 78%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Git / GitHub</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">CI/CD Pipelines</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <i class="fas fa-tools"></i>
+                        Tools & Methodologies
+                    </h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Agile / Scrum</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Microsoft Excel / Power BI</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Process Automation</span>
+                            <span class="skill-level">Expert</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <i class="fas fa-language"></i>
+                        Languages
+                    </h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Spanish</span>
+                            <span class="skill-level">Native</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">English</span>
+                            <span class="skill-level">Professional</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Master's Degree in Cybersecurity</h3>
+                            <p class="card-meta">In Progress</p>
+                        </div>
+                        <span class="card-date">2023 - 2025</span>
+                    </div>
+                    <p class="card-description">
+                        Advanced studies in applied cryptography, penetration testing, security assessment, and secure software development. 
+                        Practical projects include AES encryption tools, race condition exploitation, and security audit frameworks.
+                    </p>
+                    <div class="card-tags">
+                        <span class="tag">Cryptography</span>
+                        <span class="tag">Penetration Testing</span>
+                        <span class="tag">Security Engineering</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Informatic Engineering</h3>
+                            <p class="card-meta">Universidad Tecnológica Centroamericana (CEUTEC/UNITEC)</p>
+                        </div>
+                        <span class="card-date">2015 - 2019</span>
+                    </div>
+                    <p class="card-description">
+                        Computer Science degree with focus on software development, database management, and systems architecture. 
+                        Specialized in backend development and enterprise applications.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Bachelor of Science and Letters</h3>
+                            <p class="card-meta">Instituto Salesiano San Miguel</p>
+                        </div>
+                        <span class="card-date">1997 - 2000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-paper-plane"></i> Get In Touch</h2>
+            <p class="section-subtitle">Let's connect and discuss opportunities</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-at"></i>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-label">Email</div>
+                        <a href="mailto:fernando.zunigag@me.com">fernando.zunigag@me.com</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-label">GitHub</div>
+                        <a href="https://github.com/FernandoZnga" target="_blank">@FernandoZnga</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-label">LinkedIn</div>
+                        <a href="https://www.linkedin.com/in/fernandoznga/" target="_blank">fernandoznga</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-label">Website</div>
+                        <a href="https://oscarzuniga.live" target="_blank">oscarzuniga.live</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-label">Working From</div>
+                        <span style="color: var(--text-primary);">🌎 Anywhere in the World</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-label">Availability</div>
+                        <span style="color: var(--text-primary);">Open to Remote Opportunities</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Oscar Fernando Zuniga. Built with passion for technology and security.</p>
+            <p style="margin-top: 0.5rem; color: var(--text-muted);">
+                <i class="fas fa-code"></i> Designed & Developed with modern web technologies
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference or default to dark
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', currentTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // GitHub Stats Fetcher (simplified - only fetch public repo count)
+        async function fetchGitHubStats() {
+            const username = 'FernandoZnga';
+            try {
+                // Fetch user data for public repo count
+                const userResponse = await fetch(`https://api.github.com/users/${username}`);
+                const userData = await userResponse.json();
+                
+                // Update repo count (public only via API)
+                const repoCount = document.getElementById('repoCount');
+                
+                if (userData.public_repos && repoCount) {
+                    // Update data-target for animation
+                    repoCount.setAttribute('data-target', userData.public_repos);
+                }
+            } catch (error) {
+                console.error('Error fetching GitHub stats:', error);
+                // Fallback: keep default value of 68
+            }
+        }
+
+        // Fetch GitHub stats on page load
+        fetchGitHubStats();
+
+        // Animated Counter Function
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            if (!target || isNaN(target)) return;
+            
+            const duration = 2000; // 2 seconds
+            const start = 0;
+            const increment = target / (duration / 16); // 60fps
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    // Final value with + sign
+                    if (target >= 1000) {
+                        element.textContent = target.toLocaleString() + '+';
+                    } else {
+                        element.textContent = target + '+';
+                    }
+                    clearInterval(timer);
+                } else {
+                    // Format number during animation
+                    const displayValue = Math.floor(current);
+                    if (displayValue >= 1000) {
+                        element.textContent = displayValue.toLocaleString();
+                    } else {
+                        element.textContent = displayValue;
+                    }
+                }
+            }, 16); // ~60fps
+        }
+
+        // Start animations when page loads
+        function initCounters() {
+            // Animate all stat cards with staggered effect
+            const statCards = document.querySelectorAll('.stat-card .stat-number[data-target]');
+            statCards.forEach((el, index) => {
+                // Slight delay for staggered effect
+                setTimeout(() => {
+                    animateCounter(el);
+                }, index * 100);
+            });
+        }
+
+        // Run counter animations after page loads
+        window.addEventListener('load', () => {
+            setTimeout(initCounters, 300);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card, .skill-category, section').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
-</html> 
-
+</html>
