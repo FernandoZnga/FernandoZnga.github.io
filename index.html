@@ -1451,19 +1451,16 @@
                 const userResponse = await fetch(`https://api.github.com/users/${username}`);
                 const userData = await userResponse.json();
                 
-                // Update repo counts (public only via API)
+                // Update repo count (public only via API)
                 const repoCount = document.getElementById('repoCount');
-                const totalRepos = document.getElementById('totalRepos');
                 
-                if (userData.public_repos) {
-                    repoCount.textContent = userData.public_repos;
-                    totalRepos.textContent = userData.public_repos;
+                if (userData.public_repos && repoCount) {
+                    // Update data-target for animation
+                    repoCount.setAttribute('data-target', userData.public_repos);
                 }
             } catch (error) {
                 console.error('Error fetching GitHub stats:', error);
-                // Fallback values
-                document.getElementById('repoCount').textContent = '68+';
-                document.getElementById('totalRepos').textContent = '68+';
+                // Fallback: keep default value of 68
             }
         }
 
