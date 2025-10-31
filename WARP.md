@@ -138,5 +138,5 @@ https://fernandoznga.github.io
 
 **Contact Info:**
 - Phone number removed for privacy
-- Location changed to "Anywhere in the World" for remote appeal
+- Location changed to "Anywhere" for remote appeal
 - Email uses @ icon instead of envelope
