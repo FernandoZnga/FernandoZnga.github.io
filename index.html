@@ -748,55 +748,34 @@
                     </div>
                     <div class="stat-card">
                         <div class="stat-number" id="repoCount" data-target="68">0</div>
-                        <div class="stat-label">GitHub Repos</div>
+                        <div class="stat-label">
+                            <i class="fab fa-github" style="font-size: 0.85rem; margin-right: 0.3rem; opacity: 0.7;"></i>
+                            GitHub Repos
+                        </div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number" data-target="2500">0</div>
-                        <div class="stat-label">Total Commits</div>
+                        <div class="stat-label">
+                            <i class="fab fa-github" style="font-size: 0.85rem; margin-right: 0.3rem; opacity: 0.7;"></i>
+                            Total Commits
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="300">0</div>
+                        <div class="stat-label">
+                            <i class="fab fa-github" style="font-size: 0.85rem; margin-right: 0.3rem; opacity: 0.7;"></i>
+                            Pull Requests
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="500">0</div>
+                        <div class="stat-label">
+                            <i class="fab fa-github" style="font-size: 0.85rem; margin-right: 0.3rem; opacity: 0.7;"></i>
+                            Code Reviews
+                        </div>
                     </div>
                 </div>
 
-                <!-- GitHub Activity Details -->
-                <div class="card" style="margin-top: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-                        <i class="fab fa-github" style="font-size: 2rem; color: var(--accent-primary);"></i>
-                        <div>
-                            <h3 style="margin: 0; font-size: 1.3rem;">GitHub Contributions</h3>
-                            <p style="margin: 0; color: var(--text-muted); font-size: 0.9rem;">Public + Private repositories</p>
-                        </div>
-                    </div>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem;">
-                        <div>
-                            <div style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.3rem;">Total Commits</div>
-                            <div class="stat-number" style="font-size: 1.8rem; font-weight: 700; color: var(--accent-primary); font-family: 'JetBrains Mono', monospace;" data-target="2500">
-                                0
-                            </div>
-                        </div>
-                        <div>
-                            <div style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.3rem;">Pull Requests</div>
-                            <div class="stat-number" style="font-size: 1.8rem; font-weight: 700; color: var(--accent-primary); font-family: 'JetBrains Mono', monospace;" data-target="300">
-                                0
-                            </div>
-                        </div>
-                        <div>
-                            <div style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.3rem;">Code Reviews</div>
-                            <div class="stat-number" style="font-size: 1.8rem; font-weight: 700; color: var(--accent-primary); font-family: 'JetBrains Mono', monospace;" data-target="500">
-                                0
-                            </div>
-                        </div>
-                        <div>
-                            <div style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.3rem;">Repositories</div>
-                            <div class="stat-number" style="font-size: 1.8rem; font-weight: 700; color: var(--accent-primary); font-family: 'JetBrains Mono', monospace;" id="totalRepos" data-target="68">
-                                0
-                            </div>
-                        </div>
-                    </div>
-                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color); text-align: center;">
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">
-                            <i class="fas fa-info-circle"></i> Contributions across public and private repositories
-                        </p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -1523,9 +1502,9 @@
             }, 16); // ~60fps
         }
 
-        // Start animations when page loads and elements are visible
+        // Start animations when page loads
         function initCounters() {
-            // Animate hero stat cards
+            // Animate all stat cards with staggered effect
             const statCards = document.querySelectorAll('.stat-card .stat-number[data-target]');
             statCards.forEach((el, index) => {
                 // Slight delay for staggered effect
@@ -1533,31 +1512,6 @@
                     animateCounter(el);
                 }, index * 100);
             });
-
-            // Animate GitHub contributions card when scrolled into view
-            const contributionsCard = document.querySelector('.card .stat-number[data-target]');
-            if (contributionsCard) {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            // Find all stat numbers in this section
-                            const allStatNumbers = document.querySelectorAll('.card .stat-number[data-target]');
-                            allStatNumbers.forEach((el, index) => {
-                                setTimeout(() => {
-                                    animateCounter(el);
-                                }, index * 100);
-                            });
-                            observer.disconnect();
-                        }
-                    });
-                }, { threshold: 0.3 });
-                
-                // Observe the parent card
-                const cardParent = contributionsCard.closest('.card');
-                if (cardParent) {
-                    observer.observe(cardParent);
-                }
-            }
         }
 
         // Run counter animations after page loads
